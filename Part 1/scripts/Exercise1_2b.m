@@ -1,5 +1,5 @@
-clear all; clc;
-eeg_data = load('../data/EEG_data/EEG_Data_Assignment1.mat');
+clear; clc;
+eeg_data = load('../../data/EEG_data/EEG_Data_Assignment1.mat');
 
 eeg = eeg_data.POz;
 num_samples = length(eeg_data.POz);
@@ -33,10 +33,9 @@ set(gca,'FontSize', axes_font)
 grid on; grid minor;
 
 subplot(1, 2, 2);
+hold on;
 plot(frequency_range, pow2db(averaging_psd_10), 'LineWidth', 2, 'DisplayName', 'window length: 10s');
-hold on;
 plot(frequency_range, pow2db(averaging_psd_5), 'LineWidth', 2, 'DisplayName', 'window length: 5s');
-hold on;
 plot(frequency_range, pow2db(averaging_psd_1), 'LineWidth', 2, 'DisplayName', 'window length: 1s');
 title('Variable Window Averaged Periodograms', 'FontSize', title_font);
 xlabel('Frequency (Hz)');
